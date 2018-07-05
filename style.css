@@ -1,0 +1,143 @@
+body
+{
+    width: 97%;
+    height: 97%;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1.75em;
+    text-align: center;
+
+    background: #FF80AB;
+    color: #212121;
+}
+
+canvas {
+    border: solid .2em white;
+    height: 84.5vh;
+}
+
+/* #scorebox
+{
+    width: 280px;
+    margin: 30px;
+    background-color: #000000;
+    border: 6px solid white;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    position: ;
+
+}
+
+#scorebox div
+{
+    width: 260px;
+    text-align: left;
+    position: relative;
+    margin: 3px;
+    font-size: 20;
+    font-weight: bold;
+    font-family: Helvetica;
+    color: #ffffff;
+} */
+
+#scorebox div .red
+{
+    text-align: right;
+    font-weight: bolder;
+    color: #D50000;
+}
+
+#nextbox
+{
+    margin: 30px;
+    background-color: #000000;
+    border: 6px solid white;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    position: fixed;
+
+    top: 10%;
+    right: 27.5%;
+    transform: translateX(0%);
+
+}
+
+#nextbox div
+{
+    width: 100px;
+    text-align: center;
+    position: relative;
+    margin: 20px;
+    font-size: 25;
+    font-weight: bold;
+    font-family: Helvetica;
+    color: #ffffff;
+}
+
+#nextbox div .next
+{
+    text-align: right;
+    font-weight: bolder;
+    color: #ffeb3b;
+}
+
+#holdbox
+{
+    margin: 30px;
+    background-color: #000000;
+    border: 6px solid white;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    position: fixed;
+
+    top: 10%;
+    left: 24.5%;
+    transform: translateX(0%);
+
+}
+
+#holdbox div
+{
+    width: 110px;
+    text-align: center;
+    position: relative;
+    margin: 20px;
+    font-size: 25;
+    font-weight: bold;
+    font-family: Helvetica;
+    color: #ffffff;
+}
+
+#holdbox div .hold
+{
+    text-align: right;
+    font-weight: bolder;
+    color: #ffeb3b;
+}
+
+#controlbox
+{
+    margin: 30px;
+    background-color: #000000;
+    border: 6px solid white;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+
+    position: fixed;
+    bottom: 0;
+    left: 0%;
+    transform: translateX(0%);
+
+}
+
+#controlbox div
+{
+    width: 400px;
+    text-align: left;
+    position: relative;
+    margin: 3px;
+    font-size: 20;
+    font-weight: bold;
+    font-family: Helvetica;
+    color:#ffffff;
+}

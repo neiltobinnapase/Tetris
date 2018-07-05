@@ -1,0 +1,39 @@
+<html charset="UTF-8">
+<meta charset="UTF-8" />
+<head>
+    <title> TETRIS </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="scorebox">
+        <div> SCORE: <span id="score" class="red"> 0 </span> </div>
+        <div> HIGH SCORE: <span id="highscore" class="red"> 0 </span> </div>
+    </div>
+    <canvas id="tetris" width="200" height="400"></canvas>
+    <script src="tetris.js"></script>
+
+
+    
+    <div id="nextbox">
+        <div> NEXT: <span id="nextpiece" class="next">temp</span></div>
+    </div>
+    
+    <div id="holdbox">
+        <div> HOLD: <span id="holdpiece" class="hold"></span></div>
+    </div>
+
+    <div id="controlbox">
+        <div> <b>CONTROLS:</b> </div>
+        <div> LEFT ARROW: Move Left </div>
+        <div> RIGHT ARROW: Move Right </div>
+        <div> DOWN ARROW: Soft Drop </div>
+        <div> SPACE: Hard Drop </div>
+        <div> Z/LCTRL: Rotate Left </div>
+        <div> X/UP ARROW: Rotate Right </div>
+        <div> LSHIFT/C: Hold </div>
+    </div>
+</body>
+
+
+</html>
