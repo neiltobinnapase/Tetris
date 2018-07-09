@@ -215,6 +215,8 @@ function playerMove(dir) {
     else move.play();
 }
 
+//Pauses gameplay when Enter key is pressed, sets drop speed of player piece to 0 when paused,
+//Back to 1 when unpaused. All movement/player input is restricted when game is paused
 var isPaused = false;
 function playerPause() {
     if(isPaused !== true){
@@ -400,7 +402,7 @@ document.addEventListener('keydown', event => {
 
 document.addEventListener('keypress', event => {
     if(event.keyCode === 13){
-        console.log("i am paused/unpaused");
+        pauseSound.play();
         playerPause();
     }
 });
@@ -414,6 +416,7 @@ document.addEventListener('keydown', event => {
 
 var clear, harddrop, hold, lose, move, rotating;
 var flamingo;
+var pauseSound;
 function loadSounds() {
     clear = new Audio('sounds/clear.mp3');
     clear.volume = .9;
@@ -432,6 +435,9 @@ function loadSounds() {
 
     rotating = new Audio('sounds/rotate.mp3');
     rotating.volume = .9;
+
+    pauseSound = new Audio('sounds/pause.mp3');
+    pauseSound.volume = .9;
 
     flamingo = new Audio('sounds/flamingo.mp3');
     flamingo.volume = .35;
