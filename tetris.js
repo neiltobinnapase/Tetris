@@ -143,11 +143,13 @@ function merge(arena, player) {
     });
 }
 
+var dropSpeed = 1;
+
 //Moves piece down every second/when player input is given
 //If the piece collides with the arena, move player piece back one space and merge the arena
 //Reset the player piece and check if lines were cleared
 function playerDrop() {
-    player.pos.y++;
+    player.pos.y += dropSpeed;
 
     if(collide(arena, player)) {
         player.pos.y--;
@@ -211,6 +213,19 @@ function playerMove(dir) {
         player.pos.x -= dir;
     }
     else move.play();
+}
+
+var isPaused = false;
+function playerPause() {
+    if(isPaused !== true){
+        dropSpeed = 0;
+        isPaused = true;
+    }
+    else{
+        dropSpeed = 1;
+        isPaused = false;
+    }
+
 }
 
 
@@ -358,26 +373,41 @@ const player = {
 }
 
 document.addEventListener('keydown', event => {
-    if(event.keyCode === 37){
-        playerMove(-1);
+    if(isPaused !== true){
+        if(event.keyCode === 37){
+            playerMove(-1);
+        }
+        else if(event.keyCode === 39){
+            playerMove(1);
+        }
+        else if(event.keyCode === 40){
+            playerDrop();
+        }
+        else if(event.keyCode === 90 || event.keyCode === 17) {
+            playerRotate(-1);
+        }
+        else if(event.keyCode === 88 || event.keyCode === 38) {
+            playerRotate(1);
+        }
+        else if(event.keyCode === 67 || event.keyCode === 16) {
+            playerHold();
+        }
+        else if(event.keyCode === 32) {
+            playerHardDrop();
+        }
     }
-    else if(event.keyCode === 39){
-        playerMove(1);
+});
+
+document.addEventListener('keypress', event => {
+    if(event.keyCode === 13){
+        console.log("i am paused/unpaused");
+        playerPause();
     }
-    else if(event.keyCode === 40){
-        playerDrop();
-    }
-    else if(event.keyCode === 90 || event.keyCode === 17) {
-        playerRotate(-1);
-    }
-    else if(event.keyCode === 88 || event.keyCode === 38) {
-        playerRotate(1);
-    }
-    else if(event.keyCode === 67 || event.keyCode === 16) {
-        playerHold();
-    }
-    else if(event.keyCode === 32) {
-        playerHardDrop();
+});
+
+document.addEventListener('keydown', event => {
+    if(event.keyCode === 77){
+        musicPlay();
     }
 });
 
@@ -406,7 +436,20 @@ function loadSounds() {
     flamingo = new Audio('sounds/flamingo.mp3');
     flamingo.volume = .35;
     flamingo.loop = true;
-    flamingo.pause();
+}
+
+var musicPlaying = false;
+function musicPlay() {
+    console.log("it should be doing something");
+
+    if(musicPlaying !== true){
+        flamingo.play();
+        musicPlaying = true;
+    }
+    else{
+        flamingo.pause();
+        musicPlaying = false;
+    }
 }
 
 function init() {
@@ -414,9 +457,6 @@ function init() {
     updateScore();
     playerReset();
     update();
-
-
-    setTimeout(function () { flamingo.play();}, 150);
 }
 
 window.onload = init;
